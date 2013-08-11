@@ -47,8 +47,5 @@ $(window).on('beforeunload', function(){
 	var nd = new Date();
 	blob.leaveTimeStamp = nd.getTime();
 	blob.duration = blob.duration + nd.getTime() - start.getTime();
-	chrome.runtime.sendMessage({type:"numTabs"}, function(response){
-		blob.activeTabsOnClose = response;
-        chrome.runtime.sendMessage({type:"post", data:blob}););
-	});
+	chrome.runtime.sendMessage({type:"post", data:blob});
 });

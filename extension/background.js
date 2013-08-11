@@ -8,9 +8,14 @@ chrome.runtime.onMessage.addListener(
 			});
 		}
 		if(request.type == "post"){
-			$.post("http://localhost:4000/save", request.data, function(data, status){
-        		console.log(data,status);
-   			});
+			chrome.tabs.query({}, function(tabs){
+				request.data.activeTabsOnClose = tabs.length;
+				$.post("http://localhost:4000/save", request.data, function(data, status){
+					console.log(data);
+					console.log(status);
+				});
+			});
+        		
 		}
 		return true;
 	}
