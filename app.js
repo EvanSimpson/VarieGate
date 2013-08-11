@@ -34,6 +34,10 @@ db_connector.open(function(err, db){
 
 	app.post('/save', function(req, resp){
 		console.log(req.body);
+		collection = db.collection('logging');
+		collection.insert(req.body, {safe:true}, function(err,data){
+			if(err) console.log(err);
+		});
 	});
 
 	http.createServer(app).listen(app.get('port'), function(){
