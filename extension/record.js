@@ -11,6 +11,11 @@ blob.activeTabsOnOpen = 0;
 blob.activeTabsOnClose = 0;
 blob.duration = 0;
 blob.timesActive = 1;
+blob.visitedLinks = [];
+
+$('a').click(function(){
+    blob.visitedLinks.push($(this).attr('href'));
+});
 
 var start = d;
 var pause;
