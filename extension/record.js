@@ -5,6 +5,7 @@ var d = new Date();
 
 blob = {};
 blob.baseURL = window.location.origin;
+blob.ref = document.referrer;
 blob.fullURL = window.location.href;
 blob.navigateTimeStamp = d.getTime();
 blob.activeTabsOnOpen = 0;
