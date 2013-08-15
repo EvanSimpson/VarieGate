@@ -5,6 +5,7 @@ var d = new Date();
 
 blob = {};
 blob.baseURL = window.location.origin;
+blob.sld = window.location.origin.split(".")[window.location.origin.split(".").length-2].split("/")[window.location.origin.split(".")[window.location.origin.split(".").length-2].split("/").length-1]
 blob.ref = document.referrer;
 blob.fullURL = window.location.href;
 blob.navigateTimeStamp = d.getTime();

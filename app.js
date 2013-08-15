@@ -15,6 +15,7 @@ var app = express();
 
 db_connector.open(function(err, db){
 
+	logging = db.collection('logging');
 
 	// all environments
 	app.set('port', process.env.PORT || 4000);
@@ -33,9 +34,8 @@ db_connector.open(function(err, db){
 	}
 
 	app.post('/save', function(req, resp){
-		console.log(req.body);
-		collection = db.collection('logging');
-		collection.insert(req.body, {safe:true}, function(err,data){
+		// console.log(req.body);
+		logging.insert(req.body, {safe:true}, function(err,data){
 			if(err) console.log(err);
 		});
 	});
